@@ -1,0 +1,200 @@
+$cream: #C9B897;
+@mixin raleway{
+    font-family: 'Raleway', sans-serif;
+  }
+  
+  @mixin lustria{
+    font-family: 'Lustria', serif;
+  }
+  
+  .modal-outer{
+    position:relative;
+    z-index: 2222;
+  }
+
+.modal-dialog {
+
+    position: fixed;
+    display: block;
+    margin: auto;
+    width: 600px;
+    height: 100%;
+    // transform: translate3d(0%, 0, 0);
+   
+  }
+  
+  
+  
+  .modal.right .modal-content {
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  
+  
+  .modal.right.fade .modal-dialog {
+    
+  
+    right: -600px;
+    transition: opacity 0.4s linear, right .4s ease-in-out;
+   
+  }
+  
+  .modal.right.fade.show .modal-dialog {
+    position: absolute;
+  
+    right: 0;
+    ::-webkit-scrollbar {
+      width: 10px;
+      display: block;
+    }
+    
+    ::-webkit-scrollbar-track {
+      box-shadow: none !important;
+      background-color: white;
+    }
+    
+    
+    ::-webkit-scrollbar-thumb {
+     
+      background-color: black; 
+    }
+    
+    
+  }
+  
+  
+  .remove-button{
+    background: none;
+    border: none;
+    outline: none;
+    color: black;
+    &:hover, &:focus{
+      color: $cream;
+      outline: none;
+      border: none;
+      background: none;
+    }
+  }
+  
+  .close-modal{
+    transition: transform 1.1s ease-in-out;
+    &:hover{
+      transform: rotate(90deg);
+    }
+  }
+  
+  .close-modal, .plus, .minus{
+    color: black;
+    transition: all .3s;
+    &:hover, &:focus{
+      color: $cream;
+    }
+   
+  }
+  
+  .modal-body{
+    position: relative;
+  }
+  
+  
+  .empty-button, .checkout-total{
+    @include raleway();
+    color: #C9B897;
+    background: #000000;
+    transition: all .5s;
+    border: none;
+    
+    z-index: 1;
+    position: relative;
+  
+    
+    &:hover{
+    
+      color: #000000;
+      background: transparent;
+      border: none;
+   
+    }
+  
+    &:focus{
+        outline: none;
+        box-shadow: none;
+    }
+  
+    
+      &::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        z-index: -1;
+        background: none;
+        transition: transform 0.3s;
+        transform: scaleY(0);
+        transform-origin: bottom center;
+      }
+  
+      &:hover::after  {
+        transform: scaleY(0);
+      }
+  
+  }
+  
+  
+  
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+  
+  
+  
+  @media screen and (max-width: 575px){
+    .modal-dialog {
+        position: fixed;
+        display: block;
+       
+        width: 100%;
+        height: 100vh;
+       
+        
+      }
+      
+      
+      
+      .modal.right .modal-content {
+        height: 100%;
+        overflow-y: auto;
+      }
+      
+      
+      
+      .modal.right.fade .modal-dialog {
+        
+      
+        opacity: 0;
+        transition: opacity .4s linear;
+        right: 0;
+      }
+      
+      .modal.right.fade.show .modal-dialog {
+        opacity: 1;
+        right: 0;
+       
+        
+      }
+      
+      
+    
+  }
