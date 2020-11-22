@@ -1,0 +1,334 @@
+$cream: #C9B897;
+$gray-600: #5f5f5f;
+$gray-800: rgb(19, 19, 19);
+$green: #198754;
+$primary-overlay: rgba(16, 17, 19, 0.4);
+$font-weight-bold: 700;
+$input-placeholder-color: rgb(143, 141, 141);
+$text-muted: rgb(107, 106, 106);
+$card-cap-bg: rgba(0, 0, 0, .8); 
+$cyan: #f0ebeb;
+$component-active-bg: $cyan;
+
+// Input options
+$input-box-shadow: none;
+$input-focus-border-color: none;
+
+$input-focus-border-color:             none;
+$input-focus-color:                     none;
+
+$input-focus-box-shadow:                none;
+
+// LINKS
+
+$link-color: #000000;
+$link-decoration: none;
+
+// CHECKBOX
+$form-check-input-checked-bg-color: #000000;
+$form-check-input-bg:  transparent;
+
+$navbar-light-color: black;
+
+$navbar-light-hover-color: #C9B897 ;
+$navbar-light-active-color: #C9B897;
+$navbar-light-brand-color: black;
+$navbar-light-brand-hover-color: black;
+$btn-focus-box-shadow: none;
+$btn-focus-width: 0;
+$btn-active-box-shadow: none;
+
+// Modal variables
+$modal-fade-transform:  none;
+$modal-show-transform: none;
+$modal-transition: none;
+$modal-scale-transform: none;
+
+
+
+
+
+
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer / 4,
+  2: $spacer / 2,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 10,
+);
+
+// Colors: #C9B897, #000000.
+
+@import "../bootstrapstudy3/node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lustria&display=swap');
+
+@import "./cart";
+
+// For medium titles and nav font-family: 'Raleway', sans-serif;
+// For large titles and text font-family: 'Lustria', serif;
+
+@mixin raleway{
+  font-family: 'Raleway', sans-serif;
+}
+
+@mixin lustria{
+  font-family: 'Lustria', serif;
+}
+
+
+@mixin overlay($position){
+   
+    background: linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0, .8));
+    position: $position;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+
+// html, 
+// body {
+//     height: 100%;
+// }
+
+body{
+    @include lustria;
+   
+    position: relative;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.c-scrollbar {
+  z-index: 1111;
+}
+.c-scrollbar_thumb {
+  z-index: 1111;
+}
+
+
+button{
+  color: #C9B897;
+  background: #000000;
+  transition: all .7s;
+  border: 1px solid transparent;
+  font-size: 15px;
+  z-index: 1;
+  position: relative;
+
+  
+  &:hover{
+  
+    color: #000000;
+    border: 1px solid #000000;
+  }
+
+  &:focus{
+      outline: none;
+      box-shadow: none;
+  }
+
+  
+    &::after{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: $cream;
+      transition: transform 0.3s;
+      transform: scaleY(0);
+      transform-origin: bottom center;
+    }
+
+    &:hover::after  {
+      transform: scaleY(1);
+    }
+
+}
+
+
+
+
+
+nav{
+  @include raleway;
+  border-bottom: 4px solid $cream;
+  .nav-item{
+    font-size: 13px;
+   
+    line-height: 2em;
+    letter-spacing: .11em;
+
+ 
+
+    svg{
+      transition: .3s all;
+      height: 30px;
+      width: 30px;
+      &:hover{
+        fill: $cream;
+      }
+    }
+  }
+
+  .navbar-brand{
+    font-size: 18px;
+    line-height: 2em;
+    letter-spacing: .11em;
+  }
+  .order-btn{
+    background: $cream;
+    color: #000000;
+    color: #000000;
+    border: 1px solid #000000;
+  }
+
+  
+}
+
+// .sticky-top {
+//   position: sticky;
+//   top: 90px;
+//   z-index: 1020;
+// }
+
+.active{
+  color: $cream;
+  &:hover{
+    color: $cream;
+  }
+}
+
+@import "./burger";
+
+
+#plantation{
+  
+    height: 130vh;
+    background: url('./img/cafe-6.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    background-position: 0% 70%;
+    
+    color: #000000;
+    .row{
+      height: 130vh;
+    }
+    .h5{
+      @include raleway;
+    }
+  }
+  
+  #menu{
+  //   .swiper-container {
+  //     width: 600px;
+  //     height: 900px;
+  //     overflow: hidden;
+  //     border: red 2px solid;
+  // }
+      h1, h2{
+        border-bottom: $cream solid 1px;
+       
+      }
+      h1{
+        @include lustria;
+      }
+      @include raleway;
+
+
+      .menu-nav{
+        transition: all .3s;
+        position: relative;
+        ul{
+          padding-top: 66px;
+        }
+      }
+     
+      nav {
+        border-bottom: none;
+      }
+    
+      .list-group{
+        .tea-name{
+          height: 130px;
+          font-size: 20px;
+        }
+        .tea-props{
+          height: 50px;
+        }
+      }
+     
+  }
+
+
+
+
+#footer{
+  @include raleway;
+
+  color: $cream;
+  background: #000000;
+  a{
+    color: $cream;
+  }
+  
+  .line{
+    height: 2px;
+    background: $cream;
+  }
+  ul{
+    list-style-type: none;
+  }
+ 
+    svg{
+      height: 30px;
+      width: 30px;
+      fill: $cream;
+      transition: all .3s;
+      &:hover{
+        fill: white;
+      }
+    }
+}
+
+#target-sticky{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  
+  
+}
+
+
+// Keyframes
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+@import "./custombreakpoints";
+
+
+
